@@ -1,4 +1,23 @@
-bin/
-gen/
-.classpath
-.project
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+
+.settings
+.idea
+*.iml
+assets
+bin
+gen
+build
+gradle.properties
+*.keystore
+local.properties
+
+# ignore vim swap files
+*.sw?
+
+# JAR releases
+libs/*.jar
