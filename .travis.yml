@@ -4,7 +4,7 @@ jdk:
 before_script:
 - cd SimpleKML
 after_success:
-- "./gradew publish"
+- "./gradlew publish"
 - "./publish.sh"
 env:
   global:
