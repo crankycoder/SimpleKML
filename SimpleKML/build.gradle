@@ -13,5 +13,4 @@ sourceSets {
 compileJava {
   sourceCompatibility = 1.6
   targetCompatibility = 1.6
-  options.bootClasspath = "/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Classes/classes.jar"
 }
