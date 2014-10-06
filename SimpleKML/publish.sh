@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
   cp -R build/repo $HOME/repo
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
