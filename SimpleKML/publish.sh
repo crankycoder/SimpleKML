@@ -5,7 +5,7 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis"
-  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/st3fan/ivy.git gh-pages > /dev/null
+  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/mozilla-services/ivy-repo.git gh-pages > /dev/null
   cd gh-pages
   cp -Rf $HOME/repo/* .
   git add -f .
