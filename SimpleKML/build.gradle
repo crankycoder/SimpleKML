@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'ivy-publish'
 
 version = '1.0'
-group = 'org.crankycoder'
+group = 'com.crankycoder'
 description = "A KML serializer for Android"
 
 dependencies {
