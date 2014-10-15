@@ -1,4 +1,9 @@
 apply plugin: 'java'
+apply plugin: 'ivy-publish'
+
+version = '1.0'
+group = 'com.crankycoder'
+description = "A KML serializer for Android"
 
 dependencies {
     compile files('libs/simple-xml-2.6.3.jar')
@@ -10,8 +15,33 @@ sourceSets {
     }
 }
 
-compileJava {
-  sourceCompatibility = 1.6
-  targetCompatibility = 1.6
-  options.bootClasspath = "/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Classes/classes.jar"
+task sourceJar(type: Jar) {
+    from sourceSets.main.java
+    classifier "source"
 }
+
+publishing {
+    repositories {
+        ivy {
+            url "${rootProject.buildDir}/repo"
+        }
+    }
+    publications {
+        ivy(IvyPublication) {
+            from components.java
+            artifact(sourceJar) {
+                type "source"
+                conf "runtime"
+            }
+            descriptor.withXml {
+                asNode().info[0].appendNode('description', description)
+            }
+        }
+    }
+}
+
+compileJava {
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+}
+

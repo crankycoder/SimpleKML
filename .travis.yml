@@ -1,0 +1,11 @@
+language: java
+jdk:
+- oraclejdk7
+before_script:
+- cd SimpleKML
+after_success:
+- "./gradlew publish"
+- "./publish.sh"
+env:
+  global:
+    secure: b/RSoUpm9tZX4dZ/rZeL00jpOWCJddBOL5FFDXhFwVila4iquD1azd60PVIG1gzres8g5x5v6cjOTbXZLit4owENO40qabtlqeBRdK3p3ohD/4g/aJNQVBV9CW4nJwJk9hS+5f3NIDPVikpk1JqUNUMoWtIK8/fyb9YUIxAJsQ0=
