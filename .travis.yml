@@ -1,8 +1,6 @@
 language: java
 jdk:
 - oraclejdk7
-before_script:
-- cd SimpleKML
 after_success:
 - "./gradlew publish"
 - "./publish.sh"
