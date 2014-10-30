@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.5'
+    }
+}
+
+apply plugin: 'com.jfrog.bintray'
 apply plugin: 'java'
 apply plugin: 'ivy-publish'
 
@@ -22,6 +32,7 @@ task sourceJar(type: Jar) {
 
 publishing {
     repositories {
+        jcenter()
         ivy {
             url "${rootProject.buildDir}/repo"
         }
@@ -45,3 +56,17 @@ compileJava {
     targetCompatibility = 1.6
 }
 
+
+bintray {
+    user = 'crankycoder'
+    key = '71a63463f17c7986fa654d7fb6c3e4d764daaaf8'
+
+    publish = true
+    pkg {
+        repo = 'SimpleKML'
+        name = 'SimpleKML'
+        vcsUrl = 'https://github.com/crankycoder/SimpleKML.git'
+        licenses = ['Apache-2.0']
+        publicDownloadNumbers = true
+    }
+}
