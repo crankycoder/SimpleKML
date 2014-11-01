@@ -1,5 +1,5 @@
 all:
-	mvn install
+	./gradlew jar
 
-build:
-	mvn compile
+upload:
+	./gradlew bintrayUpload

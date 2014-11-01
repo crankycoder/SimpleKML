@@ -7,6 +7,7 @@ buildscript {
     }
 }
 
+apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'java'
 apply plugin: 'ivy-publish'
@@ -48,6 +49,19 @@ publishing {
                 asNode().info[0].appendNode('description', description)
             }
         }
+
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact(sourceJar) {
+                classifier "sources"
+            }
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('name', 'SimpleKML')
+                root.appendNode('url', 'http://github.com/crankycoder/SimpleKML')
+            }
+        }
+
     }
 }
 
@@ -58,9 +72,9 @@ compileJava {
 
 
 bintray {
-    user = 'crankycoder'
-    key = '71a63463f17c7986fa654d7fb6c3e4d764daaaf8'
-
+    user = ''
+    key = ''
+    publications = ['mavenJava']
     publish = true
     pkg {
         repo = 'SimpleKML'
